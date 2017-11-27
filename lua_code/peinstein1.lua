@@ -24,9 +24,9 @@ function connect_tcp()
     conn=net.createConnection(net.TCP,0)
     conn:on("receive", function(sck, pl) print(pl) end)
     conn:on("connection",function(sck, pl)
-      mytmr = tmr.create()
+      local mytmr = tmr.create()
       --30000, 3000 = 3sec works
-      mytmr:register(10000, tmr.ALARM_AUTO,keep_alive )
+      mytmr:register(9000, tmr.ALARM_AUTO,keep_alive )
       mytmr:start()
       --sck:send()
       end
