@@ -2,7 +2,7 @@
 --lua 5.1.4, nodemcu
 --please see nodemcu documentation for functions
 --Author: Mandeep Singh Bhatia
---Date: 27 Oct, 2017
+--Date: 27 Nov, 2017
 --
 
 --this function needs to be called for new or change of wifi ap once
@@ -21,6 +21,7 @@ end
 function connect_tcp()
     header= '00053{"cmd":"activity.recieved","data":{"output":"'
     footer= '"}}'
+    alive=false;
     conn=net.createConnection(net.TCP,0)
     conn:on("receive", function(sck, pl) print(pl) end)
     conn:on("connection",function(sck, pl)
@@ -38,10 +39,14 @@ end
 function send_command(comm)
     strng = header .. comm .. footer
 	conn:send(strng)
+    alive=true
 end
 
 function keep_alive()
-    send_command(" ")
+    if (alive==false) then
+      send_command(" ")
+    end
+    alive=false
 end
 
 --connect_tcp if wifi connected
