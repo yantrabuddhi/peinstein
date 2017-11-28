@@ -9,3 +9,10 @@ Current situation with prof einstien to make control work
 6. start scratch program or serial control (calls connect_tcp())
 
 sending node.restart() may restart the nodemcu?
+
+
+Board drivers on Mac
+Link?
+
+Board drivers on PC (Windows)
+Link?
