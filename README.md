@@ -25,7 +25,7 @@ To put lua firmware on d1 r2 board,
 4. (Linux) if device is at /dev/ttyUSB0 in pyflasher
 python ./esptool.py --chip esp8266 --port /dev/ttyUSB0 write_flash -fm dio -ff 20m -fs detect    0x0000 ./nodemcu-master-12-modules-2017-11-24-10-00-45-integer.bin
 5. install java runtime and get ESPlorer https://esp8266.ru/esplorer/
-6. start ESPlorer, connect and then press rese on board
+6. start ESPlorer, connect and then press reset on board
 7. upload lua files to d1 r2 board, first peinstein1.lua and then init.lua
 8. call init_wifi("ssid","password") to connect to prof einstein and save config
 9. board is ready to use
