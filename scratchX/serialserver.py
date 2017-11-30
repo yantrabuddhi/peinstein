@@ -11,8 +11,9 @@ import urllib
 class Einstein:
 
 		def __init__(self, ser):
-                                print("\nopening: "+ser+"\n")
-				self.ser = serial.Serial(ser,115200)
+				print("\nopening: "+ser+"\n")
+				self.ser = serial.Serial(port=ser, baudrate=115200, bytesize=8, parity='N', stopbits=1, timeout=None, xonxoff=False, rtscts=False, dsrdtr=False)
+				time.sleep(1)
 
 		def connect(self):
                                 print("\nconnecting..\n")
@@ -57,7 +58,10 @@ class MyHTTPRequestHandler(SimpleHTTPServer.SimpleHTTPRequestHandler, object):
 if __name__ == "__main__":
 	print("--- RUNNING - MAIN ---")
 	PORT = 8080
+	#linux
 	e =Einstein('/dev/ttyUSB0')
+	#mac
+	#e =Einstein('/dev/cu.wchusbserial1440')
 	Handler = MyHTTPRequestHandler
 
 	httpd = SocketServer.TCPServer(("", PORT), Handler)
