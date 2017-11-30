@@ -5,10 +5,12 @@ Date: 28 Nov,2017
 Current situation with prof einstein to make control work
 1. turn off P.E.(prof. Einstein)
 2. reset the nodemcu
-3. wait 5 sec
-4. start P.E.
-5. after P.E. tells you "now return to steinomatic to continue" wait a second
-6. start scratch program or serial control (calls connect_tcp())
+3. wait 3 sec 
+4. if using scratchx start python serial server
+5. wait 3 sec
+6. start P.E.
+7. after P.E. tells you "now return to steinomatic to continue" wait a second
+8. start scratch program or serial control (calls connect_tcp())
 
 sending node.restart() may restart the nodemcu?
 
